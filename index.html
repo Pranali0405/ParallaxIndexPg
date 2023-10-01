@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <a href="#" class="logo">Logo</a>
+        <ul>
+            <li><a href="#" class="activ  e">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <section>
+        <h2 id="text"><span>Type some text here</span><br>Indian</h2>
+        <img src="Sky2.png" id="sky" class="back">
+        <!--<img src="middle1.png" id="middle">-->
+        <img src="Cart.png" id="Cart" class="back">
+
+        <!--<img src="Layer 3.jpg" id="sky">
+        <img src="Layer 2.1.jpg" id="middle">
+        <img src="Layer1.jpg" id="Cart">-->
+
+        <!--<img src="img2.jpg" id="monuments">
+        <img src="Layer1.jpg" id="Layer1">-->
+        
+        <a href="#" id="btn">Some text</a>
+    </section>
+    <div class="sec">
+        <h2>About Us</h2>
+        <p>Before we delve into our unique implementation, let's unravel the magic behind the parallax effect. Parallax is a captivating visual technique where background elements move at a different speed than foreground elements, creating an illusion of depth and immersion as you scroll. This dynamic design approach has transformed the way we experience websites, offering users a mesmerizing journey through layers of content.
+
+            Inspired by the allure of parallax, we've meticulously integrated this technique into our webpage to elevate your digital exploration. As you navigate through our site, you'll witness the seamless dance of graphics, each scroll unveiling a new layer of our narrative. Our goal is not just to showcase a design trend; it's to immerse you in an interactive story where every scroll is a step into a visually stunning world.<br><br>
+            Let's pull back the curtain and reveal the artistic craftsmanship behind our parallax implementation. It all begins with a single image — a canvas of inspiration. Using a combination of graphic design tools like Adobe Photoshop, I meticulously dissected this image, transforming it into an array of distinct layers. Each layer carries its own essence, a fragment of the larger visual story.
+
+            But here's the exciting part: you don't need expensive software to embark on a similar creative journey. Free online tools, readily available to all, empower budding designers and enthusiasts to explore the world of parallax. With a sprinkle of imagination and the right tools, anyone can create a multi-layered masterpiece.
+        
+        </p> 
+    </div>
+    <script>
+        const observer = new IntersectionObserver((entries)=>{
+            entries.forEach((entry) =>{
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show');
+                }else{
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+        const hiddenElements = document.querySelectorAll('#text')
+        let text = document.getElementById('text');
+        let Img1 = document.getElementById('sky');
+        let middle = document.getElementById('middle');
+        let Cart = document.getElementById('Cart');
+        let btn = document.getElementById('btn');
+        let header = document.getElementById('header');
+        window.addEventListener('scroll',function(){
+            let value = window.scrollY;
+
+            text.style.top = 50 + value * -0.5 + '%';
+            sky.style.top = value * 0.50 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            middle.style.top = value * -0.45 + 'px';
+            Cart.style.top = value * -0.50 + 'px';
+            header.style.top = value * 0.5 + 'px';
+
+
+        });
+        
+
+
+
+    </script>
+
+</body>
+</html>
